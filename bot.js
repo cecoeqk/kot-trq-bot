@@ -1,16 +1,15 @@
-#kottrqbot by ceco
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-import discord
-from discord.ext import commands
-from discord.ext.commands import bot
-import asyncio
+client.on('ready', () => {
+    console.log('I am ready!');
+});
 
-bot - commands.bot(command_prefix='/')
+client.on('message', message => {
+    if (message.content === 'ping') {
+    	message.reply('pong');
+  	}
+});
 
-@bot.event
-async del no_ready():
-    print ("az sum qk xD")
-    print ("I am running on" + bot.user.name)
-    print "With th ID:" + (bot.user.id)
-
-bot.run("NDM0NDQ3NjI1NTY4Mzg3MDcy.DbKy-A.2QlmiS1VpfSIWpgoXzzaG-N9AT0")
+// THIS  MUST  BE  THIS  WAY
+client.login(process.env.BOT_TOKEN);
